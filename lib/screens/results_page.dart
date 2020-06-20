@@ -4,6 +4,15 @@ import 'package:bmi_calculator/components/bottom_button.dart';
 import 'package:bmi_calculator/components/reusable_card.dart';
 
 class ResultsPage extends StatelessWidget {
+  final bmiResult;
+  final resultText;
+  final interpretation;
+
+  ResultsPage(
+      {@required this.bmiResult,
+      @required this.interpretation,
+      @required this.resultText});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,13 +39,10 @@ class ResultsPage extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    Text('NORMAL', style: kResultTextStyle),
-                    Text('23.5', style: kBMITextStyle),
-                    Text(
-                      'Keep on this path. you\'re doing great',
-                      textAlign: TextAlign.center,
-                      style: kBodyTextStyle,
-                    )
+                    Text(resultText, style: kResultTextStyle),
+                    Text(bmiResult, style: kBMITextStyle),
+                    Text(interpretation,
+                        textAlign: TextAlign.center, style: kBodyTextStyle)
                   ],
                 ),
               ),
